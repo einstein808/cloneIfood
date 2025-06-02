@@ -3,7 +3,6 @@ package org.example;
 import java.util.Observable;
 import java.util.Observer;
 
-
 public class Cliente implements Observer {
 
     private String nome;
@@ -24,6 +23,6 @@ public class Cliente implements Observer {
     @Override
     public void update(Observable pedido, Object arg1) {
         this.ultimaNotificacao = this.nome + ", atualização do seu pedido: " + pedido.toString();
-        System.out.println(this.ultimaNotificacao);
     }
 }
+

@@ -15,6 +15,8 @@ public class FabricaDePedidos {
     }
 
     public Pedido criarPedido(String cliente) {
-        return new Pedido(cliente);
+        Pedido pedido = new Pedido(cliente); // Cria um pedido com o cliente
+        pedido.setEstado(PedidoEstadoEmPreparacao.getInstance()); // Define o estado inicial como "Em Preparação"
+        return pedido;
     }
 }
