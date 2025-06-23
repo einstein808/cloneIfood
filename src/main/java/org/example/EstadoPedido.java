@@ -1,4 +1,5 @@
 package org.example;
+
 public abstract class EstadoPedido {
 
     public abstract String getEstado();
@@ -18,4 +19,5 @@ public abstract class EstadoPedido {
     public boolean concluir(Pedido pedido) {
         return false;
     }
+
 }

@@ -13,7 +13,7 @@ public class Cliente implements Observer {
     }
 
     public String getUltimaNotificacao() {
-        return this.ultimaNotificacao;
+        return ultimaNotificacao;
     }
 
     public void acompanharPedido(Pedido pedido) {
@@ -21,8 +21,7 @@ public class Cliente implements Observer {
     }
 
     @Override
-    public void update(Observable pedido, Object arg1) {
-        this.ultimaNotificacao = this.nome + ", atualização do seu pedido: " + pedido.toString();
+    public void update(Observable pedido, Object arg) {
+        this.ultimaNotificacao = nome + ", atualização do seu pedido: " + pedido.toString();
     }
 }
-

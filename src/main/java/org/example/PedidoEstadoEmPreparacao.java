@@ -14,15 +14,26 @@ public class PedidoEstadoEmPreparacao extends EstadoPedido {
     public String getEstado() {
         return "Em Preparação";
     }
+
+    @Override
+    public boolean preparar(Pedido pedido) {
+        return false;
+    }
+
     @Override
     public boolean entregar(Pedido pedido) {
         pedido.setEstado(PedidoEstadoEmEntrega.getInstance());
-        return false;
+        return true;
     }
 
     @Override
     public boolean cancelar(Pedido pedido) {
         pedido.setEstado(PedidoEstadoCancelado.getInstance());
         return true;
+    }
+
+    @Override
+    public boolean concluir(Pedido pedido) {
+        return false;
     }
 }
