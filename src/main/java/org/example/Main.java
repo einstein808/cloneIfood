@@ -1,16 +1,21 @@
 package org.example;
 
-import org.example.Cliente;
-import org.example.Pedido;
-
 public class Main {
     public static void main(String[] args) {
-        Pedido pedido = new Pedido("Gabryel");
-        Cliente cliente = new Cliente("Gabryel");
-        cliente.acompanharPedido(pedido);
 
-        pedido.preparar();  // Vai passar pela cadeia antes de preparar
+        Pedido pedido = FabricaDePedidos.getInstancia()
+                .criarPedido("Gabryel")
+                .setEndereco("Rua das Flores, 123")
+                .setObservacao("Sem gelo")
+                .setValor(250.00)
+                .build();
 
-        System.out.println(cliente.getUltimaNotificacao());
+        System.out.println(pedido);
+
+        pedido.preparar();
+        pedido.entregar();
+        pedido.concluir();
+
+        System.out.println(pedido);
     }
 }

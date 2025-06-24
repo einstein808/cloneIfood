@@ -1,14 +1,14 @@
 package org.example;
 
 import java.util.Observable;
-import org.example.ProcessadorPedido;
-import org.example.ValidadorEstoque;
-import org.example.ValidadorPagamento;
 
 public class Pedido extends Observable {
 
     private EstadoPedido estado;
     private String cliente;
+    private String endereco;
+    private String observacao;
+    private double valor;
 
     private ProcessadorPedido cadeiaValidacao;
 
@@ -49,9 +49,24 @@ public class Pedido extends Observable {
         return estado.concluir(this);
     }
 
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
     @Override
     public String toString() {
         return "Pedido do cliente " + cliente + " - " + (estado != null ? estado.getEstado() : "Estado desconhecido");
     }
-
 }
