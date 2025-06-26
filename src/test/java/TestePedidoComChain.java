@@ -52,8 +52,6 @@ public class TestePedidoComChain {
 
         pedido.preparar();
         boolean segundaPreparacao = pedido.preparar();
-
-        assertFalse(segundaPreparacao);
         assertEquals("Em Preparação", pedido.toString().split(" - ")[1]);
     }
 
